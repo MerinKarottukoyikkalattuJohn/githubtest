@@ -1,0 +1,740 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "DojoeGOIVUjU"
+   },
+   "source": [
+    "#Question no 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "id": "-YidbrLsVZ5B"
+   },
+   "outputs": [],
+   "source": [
+    "# Given this module\n",
+    "a = 0\n",
+    "def b():\n",
+    " global a\n",
+    " a = c(a)\n",
+    "def c(a):\n",
+    " return a + 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "ZwL9UMw8Vmq8",
+    "outputId": "e7538c17-6630-4f51-b322-e6cc78fb3a77"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "6"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "b()\n",
+    "b()\n",
+    "b()\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "KDYkJZ-BVuDk"
+   },
+   "source": [
+    "#Question no. 1 Explaination\n",
+    "As we can see in the output the value of a is 6 because we have declared the variable a as global whcih means any function in the program can access the variable a that is what we mean when a variable is declared as global. In this program we call the function b() three times and function b calls the function c(a) internally and the function c(a) increase the value of a by 2 each time its called so we are calling the function b() three times which internally calls the function c(a) three times so this results in increase of the value of variable a three times with the increment of 2 so the value of a is 6 after 3 function calls to b()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "Y2PNt47SZDl1"
+   },
+   "source": [
+    "# Question no. 2\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "id": "j9EfpXNBZIE8"
+   },
+   "outputs": [],
+   "source": [
+    "# definition of the function file length\n",
+    "def filelength(filename):\n",
+    "  count=0\n",
+    "  try:\n",
+    "    f1=open(filename, 'r')\n",
+    "    for count, line in enumerate(f1):\n",
+    "        pass\n",
+    "    print('Total Lines', count + 1)\n",
+    "  except FileNotFoundError:\n",
+    "    print(\"Wrong file or file path\")\n",
+    "\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "zutvwuB4aYGA",
+    "outputId": "e785b141-b933-4a27-808d-5cf87e28d2c5"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Wrong file or file path\n"
+     ]
+    }
+   ],
+   "source": [
+    "# calling the function file length with right file name\n",
+    "filelength('/content/task1.py')\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "-LPHF_XpeVGe",
+    "outputId": "78fa61e4-6375-4dea-9bac-fbbf352a9006"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Wrong file or file path\n"
+     ]
+    }
+   ],
+   "source": [
+    "# calling the function file length with wrong file name\n",
+    "filelength('/content/task.py')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "lJGXIEuHcbx0"
+   },
+   "source": [
+    "#QUESTION NO. 3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "id": "LmqgmrZHceOi"
+   },
+   "outputs": [],
+   "source": [
+    "# created the class Mirsupial\n",
+    "class Marsupial():\n",
+    "  #initialised the empty list names in the constructor\n",
+    "  def __init__(self):\n",
+    "    self.names=[]\n",
+    "  #this function appends an item to the names list\n",
+    "  def put_in_pouch(self,name):\n",
+    "    self.names.append(name)\n",
+    "    #this function prints the list\n",
+    "  def pouch_contents(self):\n",
+    "    print(self.names)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "L_54j3sddqh8",
+    "outputId": "179d44a6-72f4-4475-fa5d-06a894d02a85"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['doll', 'firetruck', 'kitten']\n"
+     ]
+    }
+   ],
+   "source": [
+    "#creating the class Marsupial and the functions in it\n",
+    "m = Marsupial()\n",
+    "m.put_in_pouch('doll')\n",
+    "m.put_in_pouch('firetruck')\n",
+    "m.put_in_pouch('kitten')\n",
+    "m.pouch_contents()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "id": "BiyoPYRefTTv"
+   },
+   "outputs": [],
+   "source": [
+    "#creating th e class Kangaroo as a sub class of Marsupial\n",
+    "class Kangaroo(Marsupial):\n",
+    "  # constructor function to initialise the value of x and y cordinate\n",
+    "  def __init__(self,x,y):\n",
+    "    self.x=x\n",
+    "    self.y=y\n",
+    "    super().__init__()\n",
+    "\n",
+    "    \n",
+    "\n",
+    "\n",
+    "  def jump(self,dx,dy):\n",
+    "    self.x=self.x+dx\n",
+    "    self.y=self.y+dy\n",
+    "\n",
+    "  #overloading the function __str__\n",
+    "  def __str__(self):\n",
+    "    return f'I am a Kangaroo located at coordinates ({self.x},{self.y})'\n",
+    "\n",
+    "\n",
+    "\n",
+    "\n",
+    "  \n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "4niFsrT1hg52",
+    "outputId": "c17f80f1-76d3-4a13-8e83-3b2422731ca3"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "I am a Kangaroo located at coordinates (3,0)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# creating the kangaroo class and the methods in it\n",
+    "k = Kangaroo(0,0)\n",
+    "k.jump(1,0)\n",
+    "k.jump(1,0)\n",
+    "k.jump(1,0)\n",
+    "print(k)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "enY4EuLmlYsN"
+   },
+   "source": [
+    "#Question no. 4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "id": "-yzzwLwIleiU"
+   },
+   "outputs": [],
+   "source": [
+    "def Collatz(x):\n",
+    "  print(x)\n",
+    "  if x==1:\n",
+    "    return x\n",
+    "  elif x%2==0:\n",
+    "    Collatz(int(x/2))\n",
+    "  else:\n",
+    "    Collatz(3*x+1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "E8LDYgk8mbcw",
+    "outputId": "598ed49d-a3fb-4b05-bb63-24611ce986cb"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "10\n",
+      "5\n",
+      "16\n",
+      "8\n",
+      "4\n",
+      "2\n",
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "# calling the function Collatz\n",
+    "Collatz(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "EW82tUYm3gR8",
+    "outputId": "decd2cbd-65c3-46c0-e0e3-a76af42a84da"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "1"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# calling Collatz again\n",
+    "Collatz(1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "6HASl1Yu39bW"
+   },
+   "source": [
+    "# Question no. 5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "id": "HClwo4Fy4BG3"
+   },
+   "outputs": [],
+   "source": [
+    "def binary(n):  \n",
+    "  if(n==0):\n",
+    "    print(0)\n",
+    "    return\n",
+    "  elif n>=1:\n",
+    "    binary(int(n/2))\n",
+    "    print(n%2, end='')\n",
+    "  else:\n",
+    "    print()\n",
+    "    return\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "KTfYwRMF4smL",
+    "outputId": "302cfde8-f633-478c-d0e9-d1523199305e"
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      "0\n",
+      "10\n",
+      "110\n",
+      "1001"
+     ]
+    }
+   ],
+   "source": [
+    "#calling function binary\n",
+    "binary(0)\n",
+    "binary(1)\n",
+    "binary(3)\n",
+    "binary(9)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "NyWYl9mBJ29e"
+   },
+   "source": [
+    "#QUESTION NO 6\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "vRGlQLJ2J7Za",
+    "outputId": "9a14176b-90b8-425a-aeca-df6b2dc0f24e"
+   },
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: '/content/index.html'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "Input \u001b[1;32mIn [18]\u001b[0m, in \u001b[0;36m<cell line: 16>\u001b[1;34m()\u001b[0m\n\u001b[0;32m     13\u001b[0m         \u001b[38;5;28mself\u001b[39m\u001b[38;5;241m.\u001b[39mflag\u001b[38;5;241m=\u001b[39m\u001b[38;5;28;01mFalse\u001b[39;00m\n\u001b[0;32m     15\u001b[0m parser \u001b[38;5;241m=\u001b[39m MyHTMLParser()\n\u001b[1;32m---> 16\u001b[0m infile \u001b[38;5;241m=\u001b[39m \u001b[38;5;28;43mopen\u001b[39;49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[38;5;124;43m/content/index.html\u001b[39;49m\u001b[38;5;124;43m'\u001b[39;49m\u001b[43m)\u001b[49m\n\u001b[0;32m     17\u001b[0m content \u001b[38;5;241m=\u001b[39m infile\u001b[38;5;241m.\u001b[39mread()\n\u001b[0;32m     18\u001b[0m infile\u001b[38;5;241m.\u001b[39mclose()\n",
+      "\u001b[1;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: '/content/index.html'"
+     ]
+    }
+   ],
+   "source": [
+    "from html.parser import HTMLParser\n",
+    "class MyHTMLParser(HTMLParser):\n",
+    "    flag=False\n",
+    "    def handle_starttag(self, tag, attrs):\n",
+    "        if tag=='h1' or tag== 'h2' or tag=='h3' or tag=='h4' or tag=='h5' or tag=='h6':\n",
+    "          self.flag=True\n",
+    "    def handle_data(self, data):\n",
+    "      if self.flag==True:\n",
+    "        print(data)\n",
+    "\n",
+    "    def handle_endtag(self, tag: str):\n",
+    "      if tag=='h1' or tag== 'h2' or tag=='h3' or tag=='h4' or tag=='h5' or tag=='h6':\n",
+    "        self.flag=False\n",
+    "\n",
+    "parser = MyHTMLParser()\n",
+    "infile = open('/content/index.html')\n",
+    "content = infile.read()\n",
+    "infile.close()\n",
+    "parser.feed(content)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "5dWN8_zdRmxN"
+   },
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "crPxOE2oWqBU",
+    "outputId": "1ee696ab-bb2b-4b23-ca02-d48e82815371"
+   },
+   "outputs": [],
+   "source": [
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "o0o7-FrUlZr2"
+   },
+   "source": [
+    "#Question no. 8\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "id": "nnHE1J1BlcZ-"
+   },
+   "outputs": [
+    {
+     "ename": "SyntaxError",
+     "evalue": "invalid syntax (858897327.py, line 1)",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;36m  Input \u001b[1;32mIn [1]\u001b[1;36m\u001b[0m\n\u001b[1;33m    create table Weather\u001b[0m\n\u001b[1;37m           ^\u001b[0m\n\u001b[1;31mSyntaxError\u001b[0m\u001b[1;31m:\u001b[0m invalid syntax\n"
+     ]
+    }
+   ],
+   "source": [
+    "create table Weather\n",
+    "(\n",
+    "city varchar(100),\n",
+    "country varchar(100),\n",
+    "season varchar(100),\n",
+    "Temperature float,\n",
+    "Rainfall float\n",
+    ")\n",
+    "\n",
+    "insert into Weather values('Mumbai','India','Winter',24.8,5.9),\n",
+    "('Mumbai','India','Spring',28.4,16.2),\n",
+    "('Mumbai','India','Summer',27.9,1549),\n",
+    "('Mumbai','India','Winter',24.8,5.9),\n",
+    "('Mumbai','India','Fall',27.6,346.0),\n",
+    "('London','United Kingdom','Winter',4.2,207.7),\n",
+    "('London','United Kingdom','Spring',8.3,169.6),\n",
+    "('London','United Kingdom','Summer',15.7,157.0),\n",
+    "('London','United Kingdom','Fall',10.4,218.5),\n",
+    "('Cario','Egypt','Winter',13.6,16.5),\n",
+    "('Cario','Egypt','Spring',20.7,6.5),\n",
+    "('Cario','Egypt','Summer',13.6,16.5),\n",
+    "('Cario','Egypt','Fall',22.2,4.5)\n",
+    "select * from Weather\n",
+    "select temperature from Weather\n",
+    "select distinct city from Weather\n",
+    "select * from Weather where country='India'\n",
+    "select * from Weather where season='fall'\n",
+    "SELECT city  from Weather GROUP BY  city\n",
+    "HAVING  AVG(Rainfall) between 100 and 200 \n",
+    "select sum(rainfall) from weather where city='Cario'\n",
+    "select sum(rainfall) from weather group by season\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "id": "8YcnkLX48KXf"
+   },
+   "source": [
+    "# Question no.9"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "-7B82gKW8Pka",
+    "outputId": "ee1e1b19-4ffb-4eea-e1a9-b2f73d8271eb"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['THE', 'QUICK', 'BROWN', 'FOX', 'JUMPS', 'OVER', 'THE', 'LAZY', 'DOG']"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Question no 9 part a\n",
+    "words = ['The', 'quick', 'brown', 'fox', 'jumps', 'over',\n",
+    "'the', 'lazy', 'dog']\n",
+    "uppercase=[word.upper() for word in words]\n",
+    "uppercase"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "qHjDfx1O9vmZ",
+    "outputId": "721eac7d-b595-4f33-9e97-4c8f2bd6d506"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Question no 9 part b\n",
+    "lowercase=[word.lower() for word in words]\n",
+    "lowercase"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "BTENlQau-48-",
+    "outputId": "06e76b6e-2ef2-4d17-c692-a25ae5cbbc2d"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[3, 5, 5, 3, 5, 4, 3, 4, 3]"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Question no 9 part c\n",
+    "length_list=[len(word) for word in words]\n",
+    "length_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "HXeItJ-_97C6",
+    "outputId": "7eda599a-ea55-4844-b564-1d2690f402ac"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[['THE', 'the', 3],\n",
+       " ['QUICK', 'quick', 5],\n",
+       " ['BROWN', 'brown', 5],\n",
+       " ['FOX', 'fox', 3],\n",
+       " ['JUMPS', 'jumps', 5],\n",
+       " ['OVER', 'over', 4],\n",
+       " ['THE', 'the', 3],\n",
+       " ['LAZY', 'lazy', 4],\n",
+       " ['DOG', 'dog', 3]]"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Question no 9 part d\n",
+    "\n",
+    "newlst=[[word.upper(),word.lower(), len(word)] for word in words  ]\n",
+    "newlst"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "colab": {
+     "base_uri": "https://localhost:8080/"
+    },
+    "id": "XuoOkpme_VHB",
+    "outputId": "9f074942-c55d-4c76-f144-7a8ff2d586ae"
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['quick', 'brown', 'jumps', 'over', 'lazy']"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#Question no 9 part e\n",
+    "\n",
+    "fourlength_list=[word for word in words if len(word)>3 ]\n",
+    "fourlength_list"
+   ]
+  }
+ ],
+ "metadata": {
+  "colab": {
+   "provenance": []
+  },
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 1
+}
